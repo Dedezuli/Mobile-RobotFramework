@@ -1,0 +1,1466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20200416 12:29:49.734" generator="Robot 3.1.2 (Python 2.7.15 on darwin)">
+<suite source="/Users/arifnurrachmann/Repo/mobile-frontend-robot/testrf.robot" id="s1" name="Testrf">
+<kw type="setup" name="Spawn Appium Server">
+<kw name="Get Working Path">
+<kw name="Run Process" library="Process">
+<doc>Runs a process and waits for it to complete.</doc>
+<arguments>
+<arg>pwd</arg>
+<arg>shell=True</arg>
+<arg>alias=proc1</arg>
+</arguments>
+<msg timestamp="20200416 12:29:50.173" level="INFO">Starting process:
+pwd</msg>
+<msg timestamp="20200416 12:29:50.177" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20200416 12:29:50.179" level="INFO">Process completed.</msg>
+<status status="PASS" endtime="20200416 12:29:50.180" starttime="20200416 12:29:50.172"></status>
+</kw>
+<kw name="Get Process Result" library="Process">
+<doc>Returns the specified `result object` or some of its attributes.</doc>
+<arguments>
+<arg>proc1</arg>
+<arg>stdout=true</arg>
+</arguments>
+<assign>
+<var>${WORKING_PATH}</var>
+</assign>
+<msg timestamp="20200416 12:29:50.181" level="INFO">${WORKING_PATH} = /Users/arifnurrachmann/Repo/mobile-frontend-robot</msg>
+<status status="PASS" endtime="20200416 12:29:50.181" starttime="20200416 12:29:50.180"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${WORKING_PATH}</arg>
+</arguments>
+<msg timestamp="20200416 12:29:50.182" level="INFO">${WORKING_PATH} = /Users/arifnurrachmann/Repo/mobile-frontend-robot</msg>
+<status status="PASS" endtime="20200416 12:29:50.182" starttime="20200416 12:29:50.181"></status>
+</kw>
+<status status="PASS" endtime="20200416 12:29:50.182" starttime="20200416 12:29:50.172"></status>
+</kw>
+<kw name="Start Process" library="Process">
+<doc>Starts a new process on background.</doc>
+<arguments>
+<arg>appium</arg>
+<arg>-p</arg>
+<arg>${APPIUM_PORT}</arg>
+<arg>-bp</arg>
+<arg>${BOOTSTRAP_PORT}</arg>
+<arg>stdout=${WORKING_PATH}/appium-stdout.txt</arg>
+<arg>shell=true</arg>
+</arguments>
+<msg timestamp="20200416 12:29:50.198" level="INFO">Starting process:
+appium -p 4723 -bp 4724</msg>
+<status status="PASS" endtime="20200416 12:29:50.204" starttime="20200416 12:29:50.182"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5</arg>
+</arguments>
+<msg timestamp="20200416 12:29:55.207" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" endtime="20200416 12:29:55.207" starttime="20200416 12:29:50.204"></status>
+</kw>
+<status status="PASS" endtime="20200416 12:29:55.208" starttime="20200416 12:29:50.172"></status>
+</kw>
+<test id="s1-t1" name="Login with wrong email">
+<kw name="Open App">
+<kw name="Open Application" library="AppiumLibrary">
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |</doc>
+<arguments>
+<arg>http://localhost:4723/wd/hub</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>app=/Users/arifnurrachmann/Repo/mobile-frontend-robot/app-staging-x86-release.apk</arg>
+<arg>automationName=UiAutomator2</arg>
+<arg>appPackage=${APK_ENV}</arg>
+<arg>appActivity=id.investree.ui.splashscreen.SplashScreenActivity</arg>
+<arg>autoGrantPermissions=true</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:30:17.421" starttime="20200416 12:29:55.214"></status>
+</kw>
+<status status="PASS" endtime="20200416 12:30:17.421" starttime="20200416 12:29:55.211"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=rb_indo</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:30:20.754" starttime="20200416 12:30:17.421"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=rb_indo</arg>
+</arguments>
+<msg timestamp="20200416 12:30:20.757" level="INFO">Clicking element 'id=rb_indo'.</msg>
+<status status="PASS" endtime="20200416 12:30:20.807" starttime="20200416 12:30:20.754"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=btn_next</arg>
+</arguments>
+<msg timestamp="20200416 12:30:20.810" level="INFO">Clicking element 'id=btn_next'.</msg>
+<status status="PASS" endtime="20200416 12:30:21.355" starttime="20200416 12:30:20.807"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=layout_indicator</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:30:22.405" starttime="20200416 12:30:21.355"></status>
+</kw>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<arguments>
+<arg>90</arg>
+<arg>50</arg>
+<arg>10</arg>
+<arg>50</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:30:23.764" starttime="20200416 12:30:22.405"></status>
+</kw>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<arguments>
+<arg>90</arg>
+<arg>50</arg>
+<arg>10</arg>
+<arg>50</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:30:25.092" starttime="20200416 12:30:23.764"></status>
+</kw>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<arguments>
+<arg>90</arg>
+<arg>50</arg>
+<arg>10</arg>
+<arg>50</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:30:26.405" starttime="20200416 12:30:25.093"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//android.widget.FrameLayout</arg>
+</arguments>
+<msg timestamp="20200416 12:30:26.408" level="INFO">Clicking element 'xpath=//android.widget.FrameLayout'.</msg>
+<status status="PASS" endtime="20200416 12:30:26.951" starttime="20200416 12:30:26.405"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//android.widget.TextView[@text='Masuk']</arg>
+</arguments>
+<msg timestamp="20200416 12:30:26.957" level="INFO">Clicking element 'xpath=//android.widget.TextView[@text='Masuk']'.</msg>
+<status status="PASS" endtime="20200416 12:30:27.110" starttime="20200416 12:30:26.951"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=edt_email</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:30:28.280" starttime="20200416 12:30:27.110"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=edt_email</arg>
+</arguments>
+<msg timestamp="20200416 12:30:28.286" level="INFO">Clicking element 'id=edt_email'.</msg>
+<status status="PASS" endtime="20200416 12:30:28.343" starttime="20200416 12:30:28.280"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=edt_email</arg>
+<arg>lenderkobich@yopmail.com</arg>
+</arguments>
+<msg timestamp="20200416 12:30:28.346" level="INFO">Typing text 'lenderkobich@yopmail.com' into text field 'id=edt_email'</msg>
+<status status="PASS" endtime="20200416 12:30:29.975" starttime="20200416 12:30:28.343"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=edt_pass</arg>
+</arguments>
+<msg timestamp="20200416 12:30:29.978" level="INFO">Clicking element 'id=edt_pass'.</msg>
+<status status="PASS" endtime="20200416 12:30:30.612" starttime="20200416 12:30:29.976"></status>
+</kw>
+<kw name="Input Password" library="AppiumLibrary">
+<doc>Types the given password into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=edt_pass</arg>
+<arg>Aaaa1111</arg>
+</arguments>
+<msg timestamp="20200416 12:30:30.615" level="INFO">Typing password into text field 'id=edt_pass'</msg>
+<status status="PASS" endtime="20200416 12:30:31.380" starttime="20200416 12:30:30.612"></status>
+</kw>
+<kw name="Hide Keyboard" library="AppiumLibrary">
+<doc>Hides the software keyboard on the device. (optional) In iOS, use `key_name` to press
+a particular key, ex. `Done`. In Android, no parameters are used.</doc>
+<status status="PASS" endtime="20200416 12:30:33.570" starttime="20200416 12:30:31.380"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=btn_login</arg>
+</arguments>
+<msg timestamp="20200416 12:30:33.573" level="INFO">Clicking element 'id=btn_login'.</msg>
+<status status="PASS" endtime="20200416 12:30:33.622" starttime="20200416 12:30:33.570"></status>
+</kw>
+<kw name="Page Should Contain Text" library="AppiumLibrary">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>Email atau password salah</arg>
+</arguments>
+<msg timestamp="20200416 12:30:34.405" level="INFO">Current page contains text 'Email atau password salah'.</msg>
+<status status="PASS" endtime="20200416 12:30:34.405" starttime="20200416 12:30:33.622"></status>
+</kw>
+<kw type="teardown" name="Close Application" library="AppiumLibrary">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" endtime="20200416 12:30:35.772" starttime="20200416 12:30:34.406"></status>
+</kw>
+<status status="PASS" endtime="20200416 12:30:35.773" critical="yes" starttime="20200416 12:29:55.209"></status>
+</test>
+<test id="s1-t2" name="Login with wrong Password">
+<kw name="Open App">
+<kw name="Open Application" library="AppiumLibrary">
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |</doc>
+<arguments>
+<arg>http://localhost:4723/wd/hub</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>app=/Users/arifnurrachmann/Repo/mobile-frontend-robot/app-staging-x86-release.apk</arg>
+<arg>automationName=UiAutomator2</arg>
+<arg>appPackage=${APK_ENV}</arg>
+<arg>appActivity=id.investree.ui.splashscreen.SplashScreenActivity</arg>
+<arg>autoGrantPermissions=true</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:31:09.035" starttime="20200416 12:30:35.776"></status>
+</kw>
+<status status="PASS" endtime="20200416 12:31:09.035" starttime="20200416 12:30:35.775"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=rb_indo</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:31:12.013" starttime="20200416 12:31:09.036"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=rb_indo</arg>
+</arguments>
+<msg timestamp="20200416 12:31:12.015" level="INFO">Clicking element 'id=rb_indo'.</msg>
+<status status="PASS" endtime="20200416 12:31:12.059" starttime="20200416 12:31:12.013"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=btn_next</arg>
+</arguments>
+<msg timestamp="20200416 12:31:12.062" level="INFO">Clicking element 'id=btn_next'.</msg>
+<status status="PASS" endtime="20200416 12:31:12.609" starttime="20200416 12:31:12.059"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=layout_indicator</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:31:13.651" starttime="20200416 12:31:12.609"></status>
+</kw>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<arguments>
+<arg>90</arg>
+<arg>50</arg>
+<arg>10</arg>
+<arg>50</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:31:14.963" starttime="20200416 12:31:13.651"></status>
+</kw>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<arguments>
+<arg>90</arg>
+<arg>50</arg>
+<arg>10</arg>
+<arg>50</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:31:16.250" starttime="20200416 12:31:14.963"></status>
+</kw>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<arguments>
+<arg>90</arg>
+<arg>50</arg>
+<arg>10</arg>
+<arg>50</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:31:17.569" starttime="20200416 12:31:16.250"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//android.widget.FrameLayout</arg>
+</arguments>
+<msg timestamp="20200416 12:31:17.571" level="INFO">Clicking element 'xpath=//android.widget.FrameLayout'.</msg>
+<status status="PASS" endtime="20200416 12:31:18.096" starttime="20200416 12:31:17.569"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//android.widget.TextView[@text='Masuk']</arg>
+</arguments>
+<msg timestamp="20200416 12:31:18.099" level="INFO">Clicking element 'xpath=//android.widget.TextView[@text='Masuk']'.</msg>
+<status status="PASS" endtime="20200416 12:31:18.239" starttime="20200416 12:31:18.096"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=edt_email</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:31:19.313" starttime="20200416 12:31:18.239"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=edt_email</arg>
+</arguments>
+<msg timestamp="20200416 12:31:19.315" level="INFO">Clicking element 'id=edt_email'.</msg>
+<status status="PASS" endtime="20200416 12:31:19.365" starttime="20200416 12:31:19.313"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=edt_email</arg>
+<arg>lenderkobich@yopmail.com</arg>
+</arguments>
+<msg timestamp="20200416 12:31:19.368" level="INFO">Typing text 'lenderkobich@yopmail.com' into text field 'id=edt_email'</msg>
+<status status="PASS" endtime="20200416 12:31:20.951" starttime="20200416 12:31:19.365"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=edt_pass</arg>
+</arguments>
+<msg timestamp="20200416 12:31:20.953" level="INFO">Clicking element 'id=edt_pass'.</msg>
+<status status="PASS" endtime="20200416 12:31:21.612" starttime="20200416 12:31:20.951"></status>
+</kw>
+<kw name="Input Password" library="AppiumLibrary">
+<doc>Types the given password into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=edt_pass</arg>
+<arg>Afjh1923</arg>
+</arguments>
+<msg timestamp="20200416 12:31:21.616" level="INFO">Typing password into text field 'id=edt_pass'</msg>
+<status status="PASS" endtime="20200416 12:31:22.312" starttime="20200416 12:31:21.613"></status>
+</kw>
+<kw name="Hide Keyboard" library="AppiumLibrary">
+<doc>Hides the software keyboard on the device. (optional) In iOS, use `key_name` to press
+a particular key, ex. `Done`. In Android, no parameters are used.</doc>
+<status status="PASS" endtime="20200416 12:31:24.128" starttime="20200416 12:31:22.313"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=btn_login</arg>
+</arguments>
+<msg timestamp="20200416 12:31:24.129" level="INFO">Clicking element 'id=btn_login'.</msg>
+<status status="PASS" endtime="20200416 12:31:24.441" starttime="20200416 12:31:24.128"></status>
+</kw>
+<kw name="Page Should Contain Text" library="AppiumLibrary">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>Email atau password salah</arg>
+</arguments>
+<msg timestamp="20200416 12:31:25.212" level="INFO">Current page contains text 'Email atau password salah'.</msg>
+<status status="PASS" endtime="20200416 12:31:25.212" starttime="20200416 12:31:24.441"></status>
+</kw>
+<kw type="teardown" name="Close Application" library="AppiumLibrary">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" endtime="20200416 12:31:26.235" starttime="20200416 12:31:25.213"></status>
+</kw>
+<status status="PASS" endtime="20200416 12:31:26.235" critical="yes" starttime="20200416 12:30:35.774"></status>
+</test>
+<test id="s1-t3" name="Forgot Password with wrong email">
+<kw name="Open App">
+<kw name="Open Application" library="AppiumLibrary">
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |</doc>
+<arguments>
+<arg>http://localhost:4723/wd/hub</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>app=/Users/arifnurrachmann/Repo/mobile-frontend-robot/app-staging-x86-release.apk</arg>
+<arg>automationName=UiAutomator2</arg>
+<arg>appPackage=${APK_ENV}</arg>
+<arg>appActivity=id.investree.ui.splashscreen.SplashScreenActivity</arg>
+<arg>autoGrantPermissions=true</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:32:04.266" starttime="20200416 12:31:26.239"></status>
+</kw>
+<status status="PASS" endtime="20200416 12:32:04.266" starttime="20200416 12:31:26.238"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=rb_indo</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:32:07.278" starttime="20200416 12:32:04.266"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=rb_indo</arg>
+</arguments>
+<msg timestamp="20200416 12:32:07.280" level="INFO">Clicking element 'id=rb_indo'.</msg>
+<status status="PASS" endtime="20200416 12:32:07.331" starttime="20200416 12:32:07.278"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=btn_next</arg>
+</arguments>
+<msg timestamp="20200416 12:32:07.335" level="INFO">Clicking element 'id=btn_next'.</msg>
+<status status="PASS" endtime="20200416 12:32:07.874" starttime="20200416 12:32:07.332"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=layout_indicator</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:32:08.903" starttime="20200416 12:32:07.874"></status>
+</kw>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<arguments>
+<arg>90</arg>
+<arg>50</arg>
+<arg>10</arg>
+<arg>50</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:32:10.238" starttime="20200416 12:32:08.903"></status>
+</kw>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<arguments>
+<arg>90</arg>
+<arg>50</arg>
+<arg>10</arg>
+<arg>50</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:32:11.547" starttime="20200416 12:32:10.238"></status>
+</kw>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<arguments>
+<arg>90</arg>
+<arg>50</arg>
+<arg>10</arg>
+<arg>50</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:32:12.833" starttime="20200416 12:32:11.547"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//android.widget.FrameLayout</arg>
+</arguments>
+<msg timestamp="20200416 12:32:12.835" level="INFO">Clicking element 'xpath=//android.widget.FrameLayout'.</msg>
+<status status="PASS" endtime="20200416 12:32:13.338" starttime="20200416 12:32:12.833"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//android.widget.TextView[@text='Masuk']</arg>
+</arguments>
+<msg timestamp="20200416 12:32:13.339" level="INFO">Clicking element 'xpath=//android.widget.TextView[@text='Masuk']'.</msg>
+<status status="PASS" endtime="20200416 12:32:13.448" starttime="20200416 12:32:13.338"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=edt_email</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:32:14.547" starttime="20200416 12:32:13.448"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=text_forgot_password</arg>
+</arguments>
+<msg timestamp="20200416 12:32:14.548" level="INFO">Clicking element 'id=text_forgot_password'.</msg>
+<status status="PASS" endtime="20200416 12:32:14.609" starttime="20200416 12:32:14.547"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=toolbar_title_big</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:32:15.580" starttime="20200416 12:32:14.609"></status>
+</kw>
+<kw name="Element Should Contain Text" library="AppiumLibrary">
+<doc>Verifies element identified by ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>id=toolbar_title_big</arg>
+<arg>Lupa Password</arg>
+</arguments>
+<msg timestamp="20200416 12:32:15.581" level="INFO">Verifying element 'id=toolbar_title_big' contains text 'Lupa Password'.</msg>
+<status status="PASS" endtime="20200416 12:32:15.618" starttime="20200416 12:32:15.580"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=et_email</arg>
+</arguments>
+<msg timestamp="20200416 12:32:15.619" level="INFO">Clicking element 'id=et_email'.</msg>
+<status status="PASS" endtime="20200416 12:32:15.660" starttime="20200416 12:32:15.618"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=et_email</arg>
+<arg>lenderkovich@yopmail.com</arg>
+</arguments>
+<msg timestamp="20200416 12:32:15.662" level="INFO">Typing text 'lenderkovich@yopmail.com' into text field 'id=et_email'</msg>
+<status status="PASS" endtime="20200416 12:32:17.254" starttime="20200416 12:32:15.660"></status>
+</kw>
+<kw name="Hide Keyboard" library="AppiumLibrary">
+<doc>Hides the software keyboard on the device. (optional) In iOS, use `key_name` to press
+a particular key, ex. `Done`. In Android, no parameters are used.</doc>
+<status status="PASS" endtime="20200416 12:32:19.451" starttime="20200416 12:32:17.254"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=btn_reset</arg>
+</arguments>
+<msg timestamp="20200416 12:32:19.453" level="INFO">Clicking element 'id=btn_reset'.</msg>
+<status status="PASS" endtime="20200416 12:32:19.527" starttime="20200416 12:32:19.451"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=btn_positive</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:32:21.270" starttime="20200416 12:32:19.528"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=btn_positive</arg>
+</arguments>
+<msg timestamp="20200416 12:32:21.272" level="INFO">Clicking element 'id=btn_positive'.</msg>
+<status status="PASS" endtime="20200416 12:32:21.320" starttime="20200416 12:32:21.270"></status>
+</kw>
+<kw name="Page Should Contain Text" library="AppiumLibrary">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>Akun Anda tidak terdaftar sebagai lender</arg>
+</arguments>
+<msg timestamp="20200416 12:32:22.502" level="INFO">&lt;?xml version='1.0' encoding='UTF-8' standalone='yes' ?&gt;
+&lt;hierarchy index="0" class="hierarchy" rotation="0" width="1080" height="1776"&gt;
+  &lt;android.widget.FrameLayout index="0" package="id.investree.lender.dev" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1776]" displayed="true"&gt;
+    &lt;android.widget.LinearLayout index="0" package="id.investree.lender.dev" class="android.widget.LinearLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1776]" displayed="true"&gt;
+      &lt;android.widget.FrameLayout index="0" package="id.investree.lender.dev" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1776]" displayed="true"&gt;
+        &lt;android.widget.LinearLayout index="0" package="id.investree.lender.dev" class="android.widget.LinearLayout" text="" resource-id="id.investree.lender.dev:id/action_bar_root" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1776]" displayed="true"&gt;
+          &lt;android.widget.FrameLayout index="0" package="id.investree.lender.dev" class="android.widget.FrameLayout" text="" resource-id="android:id/content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1776]" displayed="true"&gt;
+            &lt;android.view.ViewGroup index="0" package="id.investree.lender.dev" class="android.view.ViewGroup" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1776]" displayed="true"&gt;
+              &lt;android.widget.ImageView index="0" package="id.investree.lender.dev" class="android.widget.ImageView" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[258,72][822,310]" displayed="true" /&gt;
+              &lt;android.widget.FrameLayout index="1" package="id.investree.lender.dev" class="android.widget.FrameLayout" text="" resource-id="id.investree.lender.dev:id/card_login" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[54,506][1026,1494]" displayed="true"&gt;
+                &lt;android.view.ViewGroup index="0" package="id.investree.lender.dev" class="android.view.ViewGroup" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[54,506][1026,1494]" displayed="true"&gt;
+                  &lt;android.widget.EditText index="0" package="id.investree.lender.dev" class="android.widget.EditText" text="Email" resource-id="id.investree.lender.dev:id/edt_email" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="true" long-clickable="true" password="false" scrollable="false" selected="false" bounds="[126,578][954,704]" displayed="true" /&gt;
+                  &lt;android.widget.EditText index="1" package="id.investree.lender.dev" class="android.widget.EditText" text="Kata Sandi" resource-id="id.investree.lender.dev:id/edt_pass" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="true" password="true" scrollable="false" selected="false" bounds="[126,746][954,872]" displayed="true" /&gt;
+                  &lt;android.widget.ImageView index="2" package="id.investree.lender.dev" class="android.widget.ImageView" text="" resource-id="id.investree.lender.dev:id/imv_show_password" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[798,746][942,872]" displayed="true" /&gt;
+                  &lt;android.widget.TextView index="3" package="id.investree.lender.dev" class="android.widget.TextView" text="Lupa Password" resource-id="id.investree.lender.dev:id/text_forgot_password" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[690,908][954,962]" displayed="true" /&gt;
+                  &lt;android.widget.Button index="4" package="id.investree.lender.dev" class="android.widget.Button" text="Masuk" resource-id="id.investree.lender.dev:id/btn_login" checkable="false" checked="false" clickable="true" enabled="false" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[126,1016][954,1160]" displayed="true" /&gt;
+                  &lt;android.widget.TextView index="5" package="id.investree.lender.dev" class="android.widget.TextView" text="Buat Akun" resource-id="id.investree.lender.dev:id/text_register" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[451,1190][630,1244]" displayed="true" /&gt;
+                  &lt;android.widget.LinearLayout index="6" package="id.investree.lender.dev" class="android.widget.LinearLayout" text="" resource-id="id.investree.lender.dev:id/layout_separator" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[172,1280][909,1332]" displayed="true"&gt;
+                    &lt;android.view.View index="0" package="id.investree.lender.dev" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[172,1304][472,1307]" displayed="true" /&gt;
+                    &lt;android.widget.TextView index="1" package="id.investree.lender.dev" class="android.widget.TextView" text="atau" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[502,1280][579,1332]" displayed="true" /&gt;
+                    &lt;android.view.View index="2" package="id.investree.lender.dev" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[609,1304][909,1307]" displayed="true" /&gt;
+                  &lt;/android.widget.LinearLayout&gt;
+                  &lt;android.widget.TextView index="7" package="id.investree.lender.dev" class="android.widget.TextView" text="Masuk Sebagai Pengunjung" resource-id="id.investree.lender.dev:id/tv_guest_login" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[301,1368][779,1422]" displayed="true" /&gt;
+                &lt;/android.view.ViewGroup&gt;
+              &lt;/android.widget.FrameLayout&gt;
+              &lt;android.widget.TextView index="2" package="id.investree.lender.dev" class="android.widget.TextView" text="Versi 2.3.6" resource-id="id.investree.lender.dev:id/text_version" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[452,1599][628,1653]" displayed="true" /&gt;
+            &lt;/android.view.ViewGroup&gt;
+          &lt;/android.widget.FrameLayout&gt;
+        &lt;/android.widget.LinearLayout&gt;
+      &lt;/android.widget.FrameLayout&gt;
+    &lt;/android.widget.LinearLayout&gt;
+  &lt;/android.widget.FrameLayout&gt;
+&lt;/hierarchy&gt;</msg>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20200416 12:32:23.438" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-1.png"&gt;&lt;img src="appium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20200416 12:32:23.438" starttime="20200416 12:32:22.504"></status>
+</kw>
+<msg timestamp="20200416 12:32:23.438" level="FAIL">Page should have contained text 'Akun Anda tidak terdaftar sebagai lender' but did not</msg>
+<status status="FAIL" endtime="20200416 12:32:23.438" starttime="20200416 12:32:21.320"></status>
+</kw>
+<kw type="teardown" name="Close Application" library="AppiumLibrary">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" endtime="20200416 12:32:24.497" starttime="20200416 12:32:23.439"></status>
+</kw>
+<status status="FAIL" endtime="20200416 12:32:24.498" critical="yes" starttime="20200416 12:31:26.236">Page should have contained text 'Akun Anda tidak terdaftar sebagai lender' but did not</status>
+</test>
+<test id="s1-t4" name="Forgot Password">
+<kw name="Open App">
+<kw name="Open Application" library="AppiumLibrary">
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |</doc>
+<arguments>
+<arg>http://localhost:4723/wd/hub</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>app=/Users/arifnurrachmann/Repo/mobile-frontend-robot/app-staging-x86-release.apk</arg>
+<arg>automationName=UiAutomator2</arg>
+<arg>appPackage=${APK_ENV}</arg>
+<arg>appActivity=id.investree.ui.splashscreen.SplashScreenActivity</arg>
+<arg>autoGrantPermissions=true</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:33:01.505" starttime="20200416 12:32:24.500"></status>
+</kw>
+<status status="PASS" endtime="20200416 12:33:01.506" starttime="20200416 12:32:24.499"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=rb_indo</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:33:04.615" starttime="20200416 12:33:01.506"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=rb_indo</arg>
+</arguments>
+<msg timestamp="20200416 12:33:04.616" level="INFO">Clicking element 'id=rb_indo'.</msg>
+<status status="PASS" endtime="20200416 12:33:04.665" starttime="20200416 12:33:04.615"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=btn_next</arg>
+</arguments>
+<msg timestamp="20200416 12:33:04.667" level="INFO">Clicking element 'id=btn_next'.</msg>
+<status status="PASS" endtime="20200416 12:33:05.204" starttime="20200416 12:33:04.665"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=layout_indicator</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:33:06.289" starttime="20200416 12:33:05.204"></status>
+</kw>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<arguments>
+<arg>90</arg>
+<arg>50</arg>
+<arg>10</arg>
+<arg>50</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:33:07.599" starttime="20200416 12:33:06.289"></status>
+</kw>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<arguments>
+<arg>90</arg>
+<arg>50</arg>
+<arg>10</arg>
+<arg>50</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:33:08.893" starttime="20200416 12:33:07.599"></status>
+</kw>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<arguments>
+<arg>90</arg>
+<arg>50</arg>
+<arg>10</arg>
+<arg>50</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:33:10.192" starttime="20200416 12:33:08.893"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//android.widget.FrameLayout</arg>
+</arguments>
+<msg timestamp="20200416 12:33:10.194" level="INFO">Clicking element 'xpath=//android.widget.FrameLayout'.</msg>
+<status status="PASS" endtime="20200416 12:33:10.717" starttime="20200416 12:33:10.192"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//android.widget.TextView[@text='Masuk']</arg>
+</arguments>
+<msg timestamp="20200416 12:33:10.718" level="INFO">Clicking element 'xpath=//android.widget.TextView[@text='Masuk']'.</msg>
+<status status="PASS" endtime="20200416 12:33:10.835" starttime="20200416 12:33:10.717"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=edt_email</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:33:11.902" starttime="20200416 12:33:10.835"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=text_forgot_password</arg>
+</arguments>
+<msg timestamp="20200416 12:33:11.903" level="INFO">Clicking element 'id=text_forgot_password'.</msg>
+<status status="PASS" endtime="20200416 12:33:11.946" starttime="20200416 12:33:11.902"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=toolbar_title_big</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:33:12.932" starttime="20200416 12:33:11.946"></status>
+</kw>
+<kw name="Element Should Contain Text" library="AppiumLibrary">
+<doc>Verifies element identified by ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>id=toolbar_title_big</arg>
+<arg>Lupa Password</arg>
+</arguments>
+<msg timestamp="20200416 12:33:12.934" level="INFO">Verifying element 'id=toolbar_title_big' contains text 'Lupa Password'.</msg>
+<status status="PASS" endtime="20200416 12:33:12.968" starttime="20200416 12:33:12.932"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=et_email</arg>
+</arguments>
+<msg timestamp="20200416 12:33:12.971" level="INFO">Clicking element 'id=et_email'.</msg>
+<status status="PASS" endtime="20200416 12:33:13.015" starttime="20200416 12:33:12.969"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=et_email</arg>
+<arg>lenderkovich@yopmail.com</arg>
+</arguments>
+<msg timestamp="20200416 12:33:13.018" level="INFO">Typing text 'lenderkovich@yopmail.com' into text field 'id=et_email'</msg>
+<status status="PASS" endtime="20200416 12:33:14.027" starttime="20200416 12:33:13.016"></status>
+</kw>
+<kw name="Hide Keyboard" library="AppiumLibrary">
+<doc>Hides the software keyboard on the device. (optional) In iOS, use `key_name` to press
+a particular key, ex. `Done`. In Android, no parameters are used.</doc>
+<status status="PASS" endtime="20200416 12:33:16.188" starttime="20200416 12:33:14.027"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=btn_reset</arg>
+</arguments>
+<msg timestamp="20200416 12:33:16.193" level="INFO">Clicking element 'id=btn_reset'.</msg>
+<status status="PASS" endtime="20200416 12:33:16.246" starttime="20200416 12:33:16.191"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=btn_positive</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:33:17.974" starttime="20200416 12:33:16.246"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=btn_positive</arg>
+</arguments>
+<msg timestamp="20200416 12:33:17.976" level="INFO">Clicking element 'id=btn_positive'.</msg>
+<status status="PASS" endtime="20200416 12:33:18.019" starttime="20200416 12:33:17.974"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=edt_email</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:33:19.137" starttime="20200416 12:33:18.020"></status>
+</kw>
+<kw type="teardown" name="Close Application" library="AppiumLibrary">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" endtime="20200416 12:33:20.181" starttime="20200416 12:33:19.137"></status>
+</kw>
+<status status="PASS" endtime="20200416 12:33:20.181" critical="yes" starttime="20200416 12:32:24.498"></status>
+</test>
+<test id="s1-t5" name="Funding below Minimum">
+<kw name="Open App">
+<kw name="Open Application" library="AppiumLibrary">
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |</doc>
+<arguments>
+<arg>http://localhost:4723/wd/hub</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>app=/Users/arifnurrachmann/Repo/mobile-frontend-robot/app-staging-x86-release.apk</arg>
+<arg>automationName=UiAutomator2</arg>
+<arg>appPackage=${APK_ENV}</arg>
+<arg>appActivity=id.investree.ui.splashscreen.SplashScreenActivity</arg>
+<arg>autoGrantPermissions=true</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:33:42.288" starttime="20200416 12:33:20.184"></status>
+</kw>
+<status status="PASS" endtime="20200416 12:33:42.288" starttime="20200416 12:33:20.183"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=rb_indo</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:33:45.371" starttime="20200416 12:33:42.288"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=rb_indo</arg>
+</arguments>
+<msg timestamp="20200416 12:33:45.372" level="INFO">Clicking element 'id=rb_indo'.</msg>
+<status status="PASS" endtime="20200416 12:33:45.420" starttime="20200416 12:33:45.371"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=btn_next</arg>
+</arguments>
+<msg timestamp="20200416 12:33:45.422" level="INFO">Clicking element 'id=btn_next'.</msg>
+<status status="PASS" endtime="20200416 12:33:45.937" starttime="20200416 12:33:45.421"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=layout_indicator</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:33:46.979" starttime="20200416 12:33:45.938"></status>
+</kw>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<arguments>
+<arg>90</arg>
+<arg>50</arg>
+<arg>10</arg>
+<arg>50</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:33:48.306" starttime="20200416 12:33:46.979"></status>
+</kw>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<arguments>
+<arg>90</arg>
+<arg>50</arg>
+<arg>10</arg>
+<arg>50</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:33:49.599" starttime="20200416 12:33:48.306"></status>
+</kw>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<arguments>
+<arg>90</arg>
+<arg>50</arg>
+<arg>10</arg>
+<arg>50</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:33:50.910" starttime="20200416 12:33:49.600"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//android.widget.FrameLayout</arg>
+</arguments>
+<msg timestamp="20200416 12:33:50.912" level="INFO">Clicking element 'xpath=//android.widget.FrameLayout'.</msg>
+<status status="PASS" endtime="20200416 12:33:51.427" starttime="20200416 12:33:50.911"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//android.widget.TextView[@text='Masuk']</arg>
+</arguments>
+<msg timestamp="20200416 12:33:51.431" level="INFO">Clicking element 'xpath=//android.widget.TextView[@text='Masuk']'.</msg>
+<status status="PASS" endtime="20200416 12:33:51.578" starttime="20200416 12:33:51.428"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=edt_email</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:33:52.780" starttime="20200416 12:33:51.579"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=edt_email</arg>
+</arguments>
+<msg timestamp="20200416 12:33:52.783" level="INFO">Clicking element 'id=edt_email'.</msg>
+<status status="PASS" endtime="20200416 12:33:52.829" starttime="20200416 12:33:52.780"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=edt_email</arg>
+<arg>lenderkovich@yopmail.com</arg>
+</arguments>
+<msg timestamp="20200416 12:33:52.832" level="INFO">Typing text 'lenderkovich@yopmail.com' into text field 'id=edt_email'</msg>
+<status status="PASS" endtime="20200416 12:33:53.821" starttime="20200416 12:33:52.829"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=edt_pass</arg>
+</arguments>
+<msg timestamp="20200416 12:33:53.824" level="INFO">Clicking element 'id=edt_pass'.</msg>
+<status status="PASS" endtime="20200416 12:33:54.556" starttime="20200416 12:33:53.821"></status>
+</kw>
+<kw name="Input Password" library="AppiumLibrary">
+<doc>Types the given password into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=edt_pass</arg>
+<arg>Aaaa1111</arg>
+</arguments>
+<msg timestamp="20200416 12:33:54.558" level="INFO">Typing password into text field 'id=edt_pass'</msg>
+<status status="PASS" endtime="20200416 12:33:55.762" starttime="20200416 12:33:54.556"></status>
+</kw>
+<kw name="Hide Keyboard" library="AppiumLibrary">
+<doc>Hides the software keyboard on the device. (optional) In iOS, use `key_name` to press
+a particular key, ex. `Done`. In Android, no parameters are used.</doc>
+<status status="PASS" endtime="20200416 12:33:57.379" starttime="20200416 12:33:55.762"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=btn_login</arg>
+</arguments>
+<msg timestamp="20200416 12:33:57.381" level="INFO">Clicking element 'id=btn_login'.</msg>
+<status status="PASS" endtime="20200416 12:33:57.694" starttime="20200416 12:33:57.379"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=marketPlace</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:34:00.040" starttime="20200416 12:33:57.694"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=marketPlace</arg>
+</arguments>
+<msg timestamp="20200416 12:34:00.042" level="INFO">Clicking element 'id=marketPlace'.</msg>
+<status status="PASS" endtime="20200416 12:34:00.099" starttime="20200416 12:34:00.040"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=toolbar_title_big</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:34:01.505" starttime="20200416 12:34:00.099"></status>
+</kw>
+<kw name="Element Should Contain Text" library="AppiumLibrary">
+<doc>Verifies element identified by ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>id=toolbar_title_big</arg>
+<arg>Daftar Pinjaman</arg>
+</arguments>
+<msg timestamp="20200416 12:34:01.507" level="INFO">Verifying element 'id=toolbar_title_big' contains text 'Daftar Pinjaman'.</msg>
+<status status="PASS" endtime="20200416 12:34:01.562" starttime="20200416 12:34:01.505"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=btn_see_detail</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:34:02.553" starttime="20200416 12:34:01.562"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=btn_founding</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:34:02.587" starttime="20200416 12:34:02.553"></status>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<doc>Verifies that element identified with locator is visible.</doc>
+<arguments>
+<arg>id=btn_founding</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:34:02.640" starttime="20200416 12:34:02.587"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=btn_founding</arg>
+</arguments>
+<msg timestamp="20200416 12:34:02.642" level="INFO">Clicking element 'id=btn_founding'.</msg>
+<status status="PASS" endtime="20200416 12:34:02.715" starttime="20200416 12:34:02.640"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=et_value</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:34:03.791" starttime="20200416 12:34:02.716"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=et_value</arg>
+</arguments>
+<msg timestamp="20200416 12:34:03.793" level="INFO">Clicking element 'id=et_value'.</msg>
+<status status="PASS" endtime="20200416 12:34:03.846" starttime="20200416 12:34:03.791"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=et_value</arg>
+<arg>100000</arg>
+</arguments>
+<msg timestamp="20200416 12:34:03.851" level="INFO">Typing text '100000' into text field 'id=et_value'</msg>
+<status status="PASS" endtime="20200416 12:34:05.383" starttime="20200416 12:34:03.847"></status>
+</kw>
+<kw name="Hide Keyboard" library="AppiumLibrary">
+<doc>Hides the software keyboard on the device. (optional) In iOS, use `key_name` to press
+a particular key, ex. `Done`. In Android, no parameters are used.</doc>
+<status status="PASS" endtime="20200416 12:34:07.505" starttime="20200416 12:34:05.383"></status>
+</kw>
+<kw name="Page Should Contain Text" library="AppiumLibrary">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>Nominal pendanaan belum memenuhi batas</arg>
+</arguments>
+<msg timestamp="20200416 12:34:07.667" level="INFO">Current page contains text 'Nominal pendanaan belum memenuhi batas'.</msg>
+<status status="PASS" endtime="20200416 12:34:07.667" starttime="20200416 12:34:07.505"></status>
+</kw>
+<kw type="teardown" name="Close Application" library="AppiumLibrary">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" endtime="20200416 12:34:09.014" starttime="20200416 12:34:07.667"></status>
+</kw>
+<status status="PASS" endtime="20200416 12:34:09.014" critical="yes" starttime="20200416 12:33:20.182"></status>
+</test>
+<test id="s1-t6" name="Funding Normal Above Minimum">
+<kw name="Open App">
+<kw name="Open Application" library="AppiumLibrary">
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |</doc>
+<arguments>
+<arg>http://localhost:4723/wd/hub</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>app=/Users/arifnurrachmann/Repo/mobile-frontend-robot/app-staging-x86-release.apk</arg>
+<arg>automationName=UiAutomator2</arg>
+<arg>appPackage=${APK_ENV}</arg>
+<arg>appActivity=id.investree.ui.splashscreen.SplashScreenActivity</arg>
+<arg>autoGrantPermissions=true</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:34:34.913" starttime="20200416 12:34:09.016"></status>
+</kw>
+<status status="PASS" endtime="20200416 12:34:34.913" starttime="20200416 12:34:09.016"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=rb_indo</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:34:38.202" starttime="20200416 12:34:34.914"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=rb_indo</arg>
+</arguments>
+<msg timestamp="20200416 12:34:38.203" level="INFO">Clicking element 'id=rb_indo'.</msg>
+<status status="PASS" endtime="20200416 12:34:38.251" starttime="20200416 12:34:38.202"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=btn_next</arg>
+</arguments>
+<msg timestamp="20200416 12:34:38.253" level="INFO">Clicking element 'id=btn_next'.</msg>
+<status status="PASS" endtime="20200416 12:34:38.799" starttime="20200416 12:34:38.251"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=layout_indicator</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:34:39.808" starttime="20200416 12:34:38.800"></status>
+</kw>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<arguments>
+<arg>90</arg>
+<arg>50</arg>
+<arg>10</arg>
+<arg>50</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:34:41.132" starttime="20200416 12:34:39.808"></status>
+</kw>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<arguments>
+<arg>90</arg>
+<arg>50</arg>
+<arg>10</arg>
+<arg>50</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:34:42.443" starttime="20200416 12:34:41.132"></status>
+</kw>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<arguments>
+<arg>90</arg>
+<arg>50</arg>
+<arg>10</arg>
+<arg>50</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:34:43.732" starttime="20200416 12:34:42.443"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//android.widget.FrameLayout</arg>
+</arguments>
+<msg timestamp="20200416 12:34:43.734" level="INFO">Clicking element 'xpath=//android.widget.FrameLayout'.</msg>
+<status status="PASS" endtime="20200416 12:34:44.245" starttime="20200416 12:34:43.732"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//android.widget.TextView[@text='Masuk']</arg>
+</arguments>
+<msg timestamp="20200416 12:34:44.247" level="INFO">Clicking element 'xpath=//android.widget.TextView[@text='Masuk']'.</msg>
+<status status="PASS" endtime="20200416 12:34:44.365" starttime="20200416 12:34:44.246"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=edt_email</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:34:45.467" starttime="20200416 12:34:44.366"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=edt_email</arg>
+</arguments>
+<msg timestamp="20200416 12:34:45.469" level="INFO">Clicking element 'id=edt_email'.</msg>
+<status status="PASS" endtime="20200416 12:34:45.523" starttime="20200416 12:34:45.467"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=edt_email</arg>
+<arg>lenderkovich@yopmail.com</arg>
+</arguments>
+<msg timestamp="20200416 12:34:45.526" level="INFO">Typing text 'lenderkovich@yopmail.com' into text field 'id=edt_email'</msg>
+<status status="PASS" endtime="20200416 12:34:46.541" starttime="20200416 12:34:45.523"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=edt_pass</arg>
+</arguments>
+<msg timestamp="20200416 12:34:46.544" level="INFO">Clicking element 'id=edt_pass'.</msg>
+<status status="PASS" endtime="20200416 12:34:47.158" starttime="20200416 12:34:46.542"></status>
+</kw>
+<kw name="Input Password" library="AppiumLibrary">
+<doc>Types the given password into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=edt_pass</arg>
+<arg>Aaaa1111</arg>
+</arguments>
+<msg timestamp="20200416 12:34:47.162" level="INFO">Typing password into text field 'id=edt_pass'</msg>
+<status status="PASS" endtime="20200416 12:34:47.918" starttime="20200416 12:34:47.159"></status>
+</kw>
+<kw name="Hide Keyboard" library="AppiumLibrary">
+<doc>Hides the software keyboard on the device. (optional) In iOS, use `key_name` to press
+a particular key, ex. `Done`. In Android, no parameters are used.</doc>
+<status status="PASS" endtime="20200416 12:34:49.157" starttime="20200416 12:34:47.919"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=btn_login</arg>
+</arguments>
+<msg timestamp="20200416 12:34:49.159" level="INFO">Clicking element 'id=btn_login'.</msg>
+<status status="PASS" endtime="20200416 12:34:49.226" starttime="20200416 12:34:49.157"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=marketPlace</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:34:51.832" starttime="20200416 12:34:49.226"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=marketPlace</arg>
+</arguments>
+<msg timestamp="20200416 12:34:51.834" level="INFO">Clicking element 'id=marketPlace'.</msg>
+<status status="PASS" endtime="20200416 12:34:51.908" starttime="20200416 12:34:51.832"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=toolbar_title_big</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:34:52.929" starttime="20200416 12:34:51.909"></status>
+</kw>
+<kw name="Element Should Contain Text" library="AppiumLibrary">
+<doc>Verifies element identified by ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>id=toolbar_title_big</arg>
+<arg>Daftar Pinjaman</arg>
+</arguments>
+<msg timestamp="20200416 12:34:52.932" level="INFO">Verifying element 'id=toolbar_title_big' contains text 'Daftar Pinjaman'.</msg>
+<status status="PASS" endtime="20200416 12:34:52.977" starttime="20200416 12:34:52.929"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=btn_see_detail</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:34:54.239" starttime="20200416 12:34:52.977"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=btn_founding</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:34:54.836" starttime="20200416 12:34:54.239"></status>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<doc>Verifies that element identified with locator is visible.</doc>
+<arguments>
+<arg>id=btn_founding</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:34:54.888" starttime="20200416 12:34:54.837"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=btn_founding</arg>
+</arguments>
+<msg timestamp="20200416 12:34:54.891" level="INFO">Clicking element 'id=btn_founding'.</msg>
+<status status="PASS" endtime="20200416 12:34:54.956" starttime="20200416 12:34:54.889"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=et_value</arg>
+</arguments>
+<status status="PASS" endtime="20200416 12:34:56.055" starttime="20200416 12:34:54.956"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=et_value</arg>
+</arguments>
+<msg timestamp="20200416 12:34:56.057" level="INFO">Clicking element 'id=et_value'.</msg>
+<status status="PASS" endtime="20200416 12:34:56.102" starttime="20200416 12:34:56.055"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=et_value</arg>
+<arg>1000000</arg>
+</arguments>
+<msg timestamp="20200416 12:34:56.108" level="INFO">Typing text '1000000' into text field 'id=et_value'</msg>
+<status status="PASS" endtime="20200416 12:34:57.606" starttime="20200416 12:34:56.103"></status>
+</kw>
+<kw name="Hide Keyboard" library="AppiumLibrary">
+<doc>Hides the software keyboard on the device. (optional) In iOS, use `key_name` to press
+a particular key, ex. `Done`. In Android, no parameters are used.</doc>
+<status status="PASS" endtime="20200416 12:34:59.284" starttime="20200416 12:34:57.606"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=btn_funding</arg>
+</arguments>
+<msg timestamp="20200416 12:34:59.288" level="INFO">Clicking element 'id=btn_funding'.</msg>
+<status status="PASS" endtime="20200416 12:34:59.436" starttime="20200416 12:34:59.285"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=btn_funding</arg>
+</arguments>
+<msg timestamp="20200416 12:34:59.438" level="INFO">Clicking element 'id=btn_funding'.</msg>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20200416 12:35:00.753" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-2.png"&gt;&lt;img src="appium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20200416 12:35:00.753" starttime="20200416 12:35:00.469"></status>
+</kw>
+<msg timestamp="20200416 12:35:00.754" level="FAIL">StaleElementReferenceException: Message: io.appium.uiautomator2.common.exceptions.StaleElementReferenceException: Cached elements 'By.id: btn_funding' do not exist in DOM anymore
+	at io.appium.uiautomator2.model.KnownElements.restoreCachedElement(KnownElements.java:59)
+	at io.appium.uiautomator2.model.KnownElements.getElementFromCache(KnownElements.java:122)
+	at io.appium.uiautomator2.handler.Click.safeHandle(Click.java:35)
+	at io.appium.uiautomator2.handler.request.SafeRequestHandler.handle(SafeRequestHandler.java:37)
+	at io.appium.uiautomator2.server.AppiumServlet.handleRequest(AppiumServlet.java:252)
+	at io.appium.uiautomator2.server.AppiumServlet.handleHttpRequest(AppiumServlet.java:243)
+	at io.appium.uiautomator2.http.ServerHandler.channelRead(ServerHandler.java:44)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:345)
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:345)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:435)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:293)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:267)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:250)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:345)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1294)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:911)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:131)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:611)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:552)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:466)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:438)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:140)
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:144)
+	at java.lang.Thread.run(Thread.java:764)
+
+</msg>
+<status status="FAIL" endtime="20200416 12:35:00.754" starttime="20200416 12:34:59.437"></status>
+</kw>
+<kw type="teardown" name="Close Application" library="AppiumLibrary">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" endtime="20200416 12:35:02.099" starttime="20200416 12:35:00.754"></status>
+</kw>
+<status status="FAIL" endtime="20200416 12:35:02.100" critical="yes" starttime="20200416 12:34:09.015">StaleElementReferenceException: Message: io.appium.uiautomator2.common.exceptions.StaleElementReferenceException: Cached elements 'By.id: btn_funding' do not exist in DOM anymore
+	at io.appium.uiautomator2.model.KnownElements.restoreCachedElement(KnownElements.java:59)
+	at io.appium.uiautomator2.model.KnownElements.getElementFromCache(KnownElements.java:122)
+	at io.appium.uiautomator2.handler.Click.safeHandle(Click.java:35)
+	at io.appium.uiautomator2.handler.request.SafeRequestHandler.handle(SafeRequestHandler.java:37)
+	at io.appium.uiautomator2.server.AppiumServlet.handleRequest(AppiumServlet.java:252)
+	at io.appium.uiautomator2.server.AppiumServlet.handleHttpRequest(AppiumServlet.java:243)
+	at io.appium.uiautomator2.http.ServerHandler.channelRead(ServerHandler.java:44)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)
+    [ Message content over the limit has been removed. ]
+...nelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:911)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:131)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:611)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:552)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:466)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:438)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:140)
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:144)
+	at java.lang.Thread.run(Thread.java:764)
+</status>
+</test>
+<kw type="teardown" name="Close Appium Server">
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Close All Applications</arg>
+</arguments>
+<kw name="Close All Applications" library="AppiumLibrary">
+<doc>Closes all open applications.</doc>
+<status status="PASS" endtime="20200416 12:35:02.109" starttime="20200416 12:35:02.105"></status>
+</kw>
+<status status="PASS" endtime="20200416 12:35:02.109" starttime="20200416 12:35:02.105"></status>
+</kw>
+<kw name="Terminate All Processes" library="Process">
+<doc>Terminates all still running processes started by this library.</doc>
+<arguments>
+<arg>kill=True</arg>
+</arguments>
+<msg timestamp="20200416 12:35:02.109" level="INFO">Forcefully killing process.</msg>
+<msg timestamp="20200416 12:35:02.215" level="INFO">Process completed.</msg>
+<status status="PASS" endtime="20200416 12:35:02.215" starttime="20200416 12:35:02.109"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5</arg>
+</arguments>
+<msg timestamp="20200416 12:35:07.216" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" endtime="20200416 12:35:07.217" starttime="20200416 12:35:02.215"></status>
+</kw>
+<status status="PASS" endtime="20200416 12:35:07.219" starttime="20200416 12:35:02.104"></status>
+</kw>
+<doc>E2E Testing</doc>
+<status status="FAIL" endtime="20200416 12:35:07.219" starttime="20200416 12:29:49.736"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="2" pass="4">Critical Tests</stat>
+<stat fail="2" pass="4">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="2" id="s1" name="Testrf" pass="4">Testrf</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20200416 12:29:49.720" level="WARN">Collapsing consecutive whitespace during parsing is deprecated. Fix ' Library' in file '/Users/arifnurrachmann/Repo/mobile-frontend-robot/testrf.robot' on line 2.</msg>
+<msg timestamp="20200416 12:29:49.720" level="WARN">Collapsing consecutive whitespace during parsing is deprecated. Fix ' Library' in file '/Users/arifnurrachmann/Repo/mobile-frontend-robot/testrf.robot' on line 3.</msg>
+<msg timestamp="20200416 12:29:49.721" level="WARN">Collapsing consecutive whitespace during parsing is deprecated. Fix ' Documentation' in file '/Users/arifnurrachmann/Repo/mobile-frontend-robot/testrf.robot' on line 4.</msg>
+</errors>
+</robot>

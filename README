@@ -1,0 +1,138 @@
+# Robot Framework Automation
+
+Robot Framework is an automation tools for Mobile platform that support iOS and Android
+
+## Installation
+
+### 1. Python:
+
+Required for Robot Framework
+ 
+unix/MAC should have python installed default on system. But in case there's a trouble running, install python 3:
+```bash
+brew install python3
+```
+
+
+For Windows download & install the latest Python [here](https://www.python.org/downloads/)
+ 
+And don't forget to check `add Python x.x to PATH' in checkbox In the Python installation box. 
+
+![pythoninstallation](https://datatofish.com/wp-content/uploads/2018/10/0001_add_Python_to_Path.png)
+
+
+
+
+Check installed python (all platform)
+
+```bash  
+python --version
+```
+
+
+### 2. Robot Framework:
+The test automation framework that will be used for writing test cases:
+
+```bash  
+pip install robotframework
+```
+
+
+### 3. Appium Library for Robot Framework
+Library that will be used for Robot Framework:
+```bash
+pip install robotframework-appiumlibrary
+```
+
+### 4. Install text editor that support python. 
+Choose what best for you, it can be [Sublime](https://www.sublimetext.com/3), [VSCode](https://code.visualstudio.com/download), or [Pycharm](https://www.jetbrains.com/toolbox-app/) or anything.
+
+
+### 5. Install node.js
+install node.js required to install appium server command line version
+
+For unix/MAC:
+```bash
+brew install node
+```
+or download manually (for windows) [here](https://nodejs.org/en/download/)
+
+
+### 6. Install appium server
+
+Appium is a server that will provide connection to the mobile devices. There's 2 way to install appium server
+- download GUI version from appium website [here](https://github.com/appium/appium-desktop/)
+- download command line version (**recommended**): 
+```bash
+npm install -g appium
+```
+
+### 7. Install Appium doctor
+Appium doctor can be used to check all required installations and settings to run appium correctly:
+```bash
+npm install appium-doctor -g
+```
+to use it, type:
+```bash
+appium-doctor
+```
+to check whether all the requirement already met or not
+
+
+### 8. Java JDK
+Install Java JDK from [here](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html)
+
+then configure the path
+
+
+
+
+
+##  Sample Robot Framework Test case
+
+copy this to the text editor:
+```python
+*** Settings ***
+Library        AppiumLibrary
+
+***Variables***
+*** Variables ***
+${PLATFORM_NAME}     Android
+${PLATFORM_VERSION}  8.0
+${APK_ENV}           id.investree.lender.dev
+${APPIUM_PORT}       4723
+${BOOTSTRAP_PORT}    4724
+
+*** Test Cases ***
+
+test_demo
+
+***Keywords***
+Open Application   http://localhost:4723/wd/hub  platformName=${PLATFORM_NAME} deviceName=${DEVICE_NAME}  app=${CURDIR}/app-staging-x86-release.apk
+automationName=UiAutomator2  appPackage=${APK_ENV}	appActivity=id.investree.ui.splashscreen.SplashScreenActivity  autoGrantPermissions=true 
+```
+
+
+
+## Usage
+
+```python
+import foobar
+
+foobar.pluralize('word') # returns 'words'
+foobar.pluralize('goose') # returns 'geese'
+foobar.singularize('phenomena') # returns 'phenomenon'
+```
+
+## Run Test
+```
+robot --variable DEVICE_NAME:Nexus_5_API_28 --variable APK_SOURCE:app-staging-x86-release.apk Lender_E2E.robot
+```
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
